@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task 2</title>
+    <style>
+        * {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            text-transform: capitalize;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 90vh;
+        }
+
+        h1,
+        p {
+            text-align: center;
+        }
+
+        p {
+            color: red;
+            margin: 10px 0;
+        }
+
+        .center {
+            width: 900px;
+            background-color: whitesmoke;
+            padding: 20px 50px;
+            position: relative;
+            box-shadow: 0 0 8px gray;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .first {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+
+        span {
+            background-color: red;
+            color: white;
+            padding: 5px 20px;
+        }
+
+        input {
+            width: 50%;
+            height: 30px;
+            border-radius: 5px;
+            outline: none;
+            border: 1px solid black;
+            font-size: 16px;
+            padding: 5px 10px;
+        }
+
+        .btn {
+            text-align: center;
+        }
+
+        .btn button {
+            padding: 5px 20px;
+        }
+
+        .result {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="center">
+        <form action="" onsubmit="return submitAll()">
+            <h1>marksheet</h1> <span>max-mark : 100</span>
+            <p id="top"></p>
+            <div class="first">
+                <label for="text">maths :-</label>
+                <input type="number" class="total" id="text">
+            </div>
+            <div class="first">
+                <label for="text">science :-</label>
+                <input type="number" class="total" id="text1">
+            </div>
+            <div class="first">
+                <label for="text">computer science :-</label>
+                <input type="number" class="total" id="text2">
+            </div>
+            <div class="first">
+                <label for="text">english :-</label>
+                <input type="number" class="total" id="text3">
+            </div>
+            <div class="first">
+                <label for="text">hindi :-</label>
+                <input type="number" class="total" id="text4">
+
+            </div>
+            <div class="btn"><button type="submit">total</button></div>
+            <div class="result">
+                <h3 id="add">Total number</h3>
+                <h3 id="percentage">percentage</h3>
+                <h3 id="grade">grade</h3>
+            </div>
+        </form>
+    </div>
+    <script>
+        let maths = document.getElementById("text");
+        let science = document.getElementById("text1");
+        let comScience = document.getElementById("text2");
+        let english = document.getElementById("text3");
+        let hindi = document.getElementById("text4");
+
+        function submitAll() {
+            let totalValue = Number(maths.value) + Number(science.value) + Number(english.value) + Number(comScience.value) + Number(hindi.value);
+            document.getElementById("add").innerHTML = totalValue;
+            let percentage = totalValue * 100 / 500 + "%"
+            document.getElementById("percentage").innerHTML = percentage;
+            if (totalValue <= 165) {
+                document.getElementById("grade").innerHTML = "failed"
+                document.getElementById("top").innerHTML = "failed"
+                return false
+            }
+            else if (totalValue <= 200) {
+                document.getElementById("grade").innerHTML = "c grade"
+                document.getElementById("top").innerHTML = "passed"
+                return false
+            } else if (totalValue <= 300) {
+                document.getElementById("grade").innerHTML = "b grade"
+                document.getElementById("top").innerHTML = "passed"
+                return false
+            } else if (totalValue <= 500) {
+                document.getElementById("grade").innerHTML = "A++ grade"
+                document.getElementById("top").innerHTML = "passed"
+                return false
+            }
+            else if (totalValue <= 400) {
+                document.getElementById("grade").innerHTML = "A grade"
+                document.getElementById("top").innerHTML = "passed"
+                return false
+            }
+            else if (totalValue >= 501) {
+                document.getElementById("add").innerHTML = "";
+                document.getElementById("grade").innerHTML = ""
+                document.getElementById("percentage").innerHTML = "";
+                document.getElementById("top").innerHTML = "Please enter valid number"
+                return false
+            }
+        }
+    </script>
+</body>
+
+</html>
